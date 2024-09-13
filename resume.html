@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1f242d;
+            color: #333;
+        }
+        .resume-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background-color: #8ea1c2;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            color: #333;
+            font-size: 20px;
+        }
+        h3 {
+            color: #333;
+            font-size: 30px;
+        }
+        .section {
+            margin-bottom: 2rem;
+        }
+        .section h2 {
+            border-bottom: 2px solid #333;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+            
+        }
+        p {
+            font-size: 20px;
+        }
+        p1 {
+            font-size: 20px;
+            color: whitesmoke;
+            font-weight: 600;
+        }
+        .section p {
+            margin: 0.5rem 0;
+           
+        }
+        .download-btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    margin: 1rem 0;
+    background-color: #007bff; /* Default button color */
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    text-align: center;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease; /* Smooth transition effect */
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.download-btn:hover {
+    background-color: red; /* Hover background color */
+}
+
+    </style>
+</head>
+<body>
+
+    <div class="resume-container">
+        <h3>Hadiqa Gohar</h3>
+        <p1>Frontend Developer | Programmer | Artist</p1>
+        
+        <div class="section">
+            <h2>About Me</h2>
+            <p>I am a Medical Student and a Senior Student at the Governor Initiative for Cloud Applied Generative AI, Web 3.0 & Metaverse. With a strong foundation in science and a passion for programming, I'm constantly learning and exploring new technologies.</p>
+        </div>
+
+        <div class="section">
+            <h2>Education</h2>
+            <p><strong>Matric In Science Biology</strong> - EABGGSS, 2021 - 2022</p>
+            <p><strong>Intermediate (pre-medical)</strong> - GISACC, 2023 - 2024</p>
+            <p><strong>Generative AI</strong> - GIAIC, 2024</p>
+        </div>
+
+        <div class="section">
+            <h2>Skills</h2>
+            <p>JavaScript, HTML, CSS, Node.js, TypeScript, Python, NextJS, Tailwind CSS</p>
+        </div>
+
+        <div class="section">
+            <h2>Work Experience</h2>
+            <p><strong>Frontend Developer Intern</strong> - GIAIC, 2024</p>
+            <p>Worked on various frontend projects, including building responsive websites and web applications using JavaScript and Next.js.</p>
+        </div>
+
+        <a href="#" class="download-btn" id="download-cv">Download CV</a>
+    </div>
+
+    <script>
+        document.getElementById('download-cv').addEventListener('click', () => {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+
+            doc.setFontSize(22);
+            doc.text("Hadiqa Gohar", 14, 22);
+            doc.setFontSize(16);
+            doc.text("Frontend Developer | Programmer | Artist", 14, 30);
+
+            doc.setFontSize(14);
+            doc.text("About Me:", 14, 50);
+            doc.setFontSize(12);
+            doc.text("I am a Medical Student and a Senior Student at the Governor Initiative for Cloud Applied Generative AI, Web 3.0 & Metaverse. With a strong foundation in science and a passion for programming, I'm constantly learning and exploring new technologies.", 14, 60);
+
+            doc.setFontSize(14);
+            doc.text("Education:", 14, 90);
+            doc.setFontSize(12);
+            doc.text("Matric In Science Biology - EABGGSS, 2021 - 2022", 14, 100);
+            doc.text("Intermediate (pre-medical) - GISACC, 2023 - 2024", 14, 110);
+            doc.text("Generative AI - GIAIC, 2024", 14, 120);
+
+            doc.setFontSize(14);
+            doc.text("Skills:", 14, 140);
+            doc.setFontSize(12);
+            doc.text("JavaScript, HTML, CSS, Node.js, TypeScript, Python", 14, 150);
+
+            doc.setFontSize(14);
+            doc.text("Work Experience:", 14, 170);
+            doc.setFontSize(12);
+            doc.text("Frontend Developer Intern - XYZ Company, 2023", 14, 180);
+            doc.text("Worked on various frontend projects, including building responsive websites and web applications using JavaScript and React.js.", 14, 190);
+
+            doc.save('Hadiqa_Gohar_Resume.pdf');
+        });
+    </script>
+    
+</body>
+</html>

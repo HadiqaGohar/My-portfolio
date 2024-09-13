@@ -60,3 +60,47 @@ const typed = new Typed(".multiple-text", {
 
 
 
+// 
+
+document.addEventListener('DOMContentLoaded', () => {
+    const contactForm = document.querySelector('.contact-left');
+
+    // Form submit event listener
+    contactForm.addEventListener('submit', function (event) {
+        // Optional: You can handle form data here if needed
+        // e.g., show a loading indicator or handle submission feedback
+    });
+});
+
+
+
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    // Handle the "Download CV" button click
+    const downloadBtn = document.querySelector('.home .btn');
+
+    if (downloadBtn) {
+        downloadBtn.addEventListener('click', (event) => {
+            event.preventDefault(); // Prevent default anchor behavior
+
+            // Specify the correct path to your CV
+            const cvUrl = 'resume.pdf'; // Ensure this path is correct
+
+            // Create a temporary link element
+            const link = document.createElement('a');
+            link.href = cvUrl;
+            link.download = 'Hadiqa_Gohar_Resume.pdf'; // Name of the downloaded file
+
+            // Append the link to the body and trigger a click event
+            document.body.appendChild(link);
+            link.click();
+
+            // Remove the link from the document
+            document.body.removeChild(link);
+        });
+    }
+});

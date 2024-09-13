@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 * {
@@ -13,19 +17,20 @@
 
 /* -------------------------------------------------------------------------------------------------- */
 
-
 /* SHINI PROFILE  */
 
-.home{
+/* Base styles for home-img and about-img */
+.home {
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
 .home-img img {
     width: 35vw;
-    animation: floatImage 4s ease-in-out infinite;
+    animation: floatImage linear infinite;
 }
-/* up and down picture */
+
 @keyframes floatImage {
     0% {
         transform: translateY(0);
@@ -42,12 +47,12 @@
 .about-img img {
     height: 530px;
     width: 530px;
-    border-radius: 50%; /* Ensure circular shape */
-    border: 2px solid transparent; /* Initial transparent border */
-    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Transitions for border color and box-shadow */
-    background-color: var(--second-bg-color); /* Background color */
-    position: relative; /* Ensure positioning context for pseudo-element */
-    overflow: hidden; /* Hide any overflow */
+    border-radius: 50%;
+    border: 2px solid transparent;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background-color: var(--second-bg-color);
+    position: relative;
+    overflow: hidden;
 }
 
 .home-img img::before,
@@ -61,22 +66,51 @@
     background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 80%);
     opacity: 0;
     transition: opacity 0.3s ease;
-    border-radius: 50%; /* Match the circular shape */
+    border-radius: 50%;
 }
 
 .home-img img:hover::before,
 .about-img img:hover::before {
-    opacity: 1; /* Show the shine effect on hover */
+    opacity: 1;
 }
 
 .home-img img:hover {
-    border-color: var(--main-color); /* Change border color on hover */
-    box-shadow: 0 0 20px 6px var(--main-color); /* Enhance box shadow on hover */
+    border-color: var(--main-color);
+    box-shadow: 0 0 20px 6px var(--main-color);
 }
 
 .about-img img:hover {
-    border-color: var(--main-color); /* Change border color on hover */
-    box-shadow: 0 0 20px 6px var(--main-color); /* Enhance box shadow on hover */
+    border-color: var(--main-color);
+    box-shadow: 0 0 20px 6px var(--main-color);
+}
+
+/* Media queries for responsiveness */
+
+@media (max-width: 1024px) {
+    /* Adjustments for tablets and smaller screens */
+    .home-img img,
+    .about-img img {
+        height: 400px;
+        width: 400px;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Adjustments for mobile devices */
+    .home-img img,
+    .about-img img {
+        height: 300px;
+        width: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Adjustments for very small devices */
+    .home-img img,
+    .about-img img {
+        height: 250px;
+        width: 250px;
+    }
 }
 
 /* ------------------------------------------------------------------------------------------------- */
@@ -118,7 +152,6 @@ section {
 
 .header.sticky {
     border: 1rem solid rgba(0, 0, 0, .2);
-   
 }
 
 .logo {
@@ -146,8 +179,98 @@ section {
     display: none;
 }
 
+/* Media queries for responsiveness */
+
+@media (max-width: 1024px) {
+    /* Adjustments for tablets and smaller screens */
+    section {
+        padding: 8rem 5%;
+    }
+    
+    .header {
+        padding: 1.5rem 5%;
+    }
+
+    .logo {
+        font-size: 2rem;
+    }
+
+    .navbar a {
+        font-size: 1.5rem;
+        margin-left: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Adjustments for smaller tablets and mobile devices */
+    html {
+        font-size: 56.25%;
+    }
+
+    .home-img img {
+        width: 50vw;
+        height: auto;
+    }
+
+    section {
+        padding: 6rem 4%;
+    }
+
+    .header {
+        padding: 1.5rem 4%;
+    }
+
+    .logo {
+        font-size: 1.8rem;
+    }
+
+    .navbar a {
+        font-size: 1.3rem;
+        margin-left: 1.5rem;
+    }
+
+    #menu-icon {
+        display: block;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Adjustments for very small devices */
+    html {
+        font-size: 50%;
+    }
+
+    .home-img img {
+        width: 70vw;
+        height: auto;
+    }
+
+    section {
+        padding: 4rem 2%;
+    }
+
+    .header {
+        padding: 1rem 2%;
+    }
+
+    .logo {
+        font-size: 1.6rem;
+    }
+
+    .navbar a {
+        font-size: 1.2rem;
+        margin-left: 1rem;
+    }
+
+    #menu-icon {
+        font-size: 3rem;
+    }
+}
+
+
 /* -------------------------------------------------------------------------------------------------- */
 
+/* Base styles */
 .home {
     display: flex;
     justify-content: center;
@@ -181,8 +304,91 @@ span {
     font-size: 1.6rem;
 }
 
+.multiple-text {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #0ef;
+}
+
+/* Media queries for responsiveness */
+
+@media (max-width: 1024px) {
+    /* Adjustments for tablets and smaller screens */
+    .home-img {
+        width: 45vw; /* Adjust image width */
+    }
+
+    .home-content h3 {
+        font-size: 2.8rem; /* Adjust font size */
+    }
+
+    .home-content h1 {
+        font-size: 4.8rem; /* Adjust font size */
+    }
+
+    .home-content p {
+        font-size: 1.4rem; /* Adjust font size */
+    }
+
+    .multiple-text {
+        font-size: 2.5rem; /* Adjust font size */
+    }
+}
+
+@media (max-width: 768px) {
+    /* Adjustments for mobile devices */
+    .home {
+        flex-direction: column; /* Stack content vertically */
+        text-align: center; /* Center align text */
+    }
+
+    .home-img {
+        width: 60vw; /* Adjust image width */
+    }
+
+    .home-content h3 {
+        font-size: 2.4rem; /* Adjust font size */
+    }
+
+    .home-content h1 {
+        font-size: 4rem; /* Adjust font size */
+    }
+
+    .home-content p {
+        font-size: 1.2rem; /* Adjust font size */
+    }
+
+    .multiple-text {
+        font-size: 2rem; /* Adjust font size */
+    }
+}
+
+@media (max-width: 480px) {
+    /* Adjustments for very small devices */
+    .home-img {
+        width: 80vw; /* Adjust image width */
+    }
+
+    .home-content h3 {
+        font-size: 2rem; /* Adjust font size */
+    }
+
+    .home-content h1 {
+        font-size: 3.2rem; /* Adjust font size */
+    }
+
+    .home-content p {
+        font-size: 1rem; /* Adjust font size */
+    }
+
+    .multiple-text {
+        font-size: 1.8rem; /* Adjust font size */
+    }
+}
+
 /* -------------------------------------------------------------------------------------------------- */
 
+/* Base styles for social media and button elements */
 .social-media a {
     display: inline-flex;
     justify-content: center;
@@ -221,8 +427,60 @@ span {
     box-shadow: none;
 }
 
+/* Media queries for responsiveness */
+
+@media (max-width: 1024px) {
+    /* Adjustments for tablets and smaller screens */
+    .social-media a {
+        width: 3.5rem;
+        height: 3.5rem;
+        font-size: 1.8rem;
+        margin: 2rem 1rem;
+    }
+
+    .btn {
+        padding: 0.8rem 2.4rem;
+        font-size: 1.4rem;
+        letter-spacing: 0.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Adjustments for mobile devices */
+    .social-media a {
+        width: 3rem;
+        height: 3rem;
+        font-size: 1.6rem;
+        margin: 1.5rem 0.8rem;
+    }
+
+    .btn {
+        padding: 0.6rem 2rem;
+        font-size: 1.2rem;
+        letter-spacing: 0.6rem;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Adjustments for very small devices */
+    .social-media a {
+        width: 2.5rem;
+        height: 2.5rem;
+        font-size: 1.4rem;
+        margin: 1rem 0.5rem;
+    }
+
+    .btn {
+        padding: 0.5rem 1.6rem;
+        font-size: 1rem;
+        letter-spacing: 0.4rem;
+    }
+}
+
+
 /* ------------------------------------------------------------------------------------------------- */
 
+/* Base styles for the about section */
 .about {
     display: flex;
     justify-content: center;
@@ -250,9 +508,104 @@ span {
     margin: 2rem 0 3rem;
 }
 
+/* Style for the <span> inside the <h2> */
+.about-content h2 span {
+    color: #0ef; /* Change to your preferred color */
+    font-weight: bold; /* Optional: make text bold */
+    font-size: 50px;
+}
+
+/* Media queries for responsiveness */
+
+@media (max-width: 1024px) {
+    /* Adjustments for tablets and smaller screens */
+    .about {
+        flex-direction: column; /* Stack content vertically */
+        gap: 1.5rem; /* Adjust spacing between elements */
+    }
+
+    .heading {
+        font-size: 3.8rem; /* Adjust font size */
+    }
+
+    .about-content h2 {
+        font-size: 3.2rem; /* Adjust font size */
+    }
+
+    .about-content h3 {
+        font-size: 2.2rem; /* Adjust font size */
+    }
+
+    .about-content p {
+        font-size: 1.4rem; /* Adjust font size */
+        margin: 1.5rem 0 2rem; /* Adjust margin */
+    }
+
+    .about-content h2 span {
+        font-size: 40px; /* Adjust font size for the <span> */
+    }
+}
+
+@media (max-width: 768px) {
+    /* Adjustments for mobile devices */
+    .about {
+        gap: 1rem; /* Reduce spacing */
+    }
+
+    .heading {
+        font-size: 3rem; /* Adjust font size */
+    }
+
+    .about-content h2 {
+        font-size: 2.6rem; /* Adjust font size */
+    }
+
+    .about-content h3 {
+        font-size: 1.8rem; /* Adjust font size */
+    }
+
+    .about-content p {
+        font-size: 1.2rem; /* Adjust font size */
+        margin: 1rem 0 1.5rem; /* Adjust margin */
+    }
+
+    .about-content h2 span {
+        font-size: 35px; /* Adjust font size for the <span> */
+    }
+}
+
+@media (max-width: 480px) {
+    /* Adjustments for very small devices */
+    .about {
+        gap: 0.5rem; /* Further reduce spacing */
+    }
+
+    .heading {
+        font-size: 2.5rem; /* Adjust font size */
+    }
+
+    .about-content h2 {
+        font-size: 2rem; /* Adjust font size */
+    }
+
+    .about-content h3 {
+        font-size: 1.6rem; /* Adjust font size */
+    }
+
+    .about-content p {
+        font-size: 1rem; /* Adjust font size */
+        margin: 0.5rem 0 1rem; /* Adjust margin */
+    }
+
+    .about-content h2 span {
+        font-size: 30px; /* Adjust font size for the <span> */
+    }
+}
+
+
 /* --------------------------------------------------------------------------------------------------- */
 
-/* Education Section */
+/* Base styles for education section */
 .education {
     background: var(--second-bg-color);
 }
@@ -297,6 +650,101 @@ span {
     font-size: 1.6rem;
     margin: 1rem 0 3rem;
 }
+
+/* Style for the <span> inside the <h2> in the education section */
+.education h2 span {
+    color: #0ef; /* Change to your preferred color */
+    font-weight: bold; /* Optional: make text bold */
+    font-size: 50px;
+}
+
+/* Media queries for responsiveness */
+
+@media (max-width: 1024px) {
+    /* Adjustments for tablets and smaller screens */
+    .education h2 {
+        margin-bottom: 3rem; /* Reduce margin for smaller screens */
+    }
+
+    .education-box {
+        flex: 1 1 40rem; /* Adjust width for smaller screens */
+        padding: 2.5rem 1.5rem 3rem; /* Adjust padding */
+    }
+
+    .education-box i {
+        font-size: 5.5rem; /* Adjust icon size */
+    }
+
+    .education-box h3 {
+        font-size: 2.2rem; /* Adjust heading font size */
+    }
+
+    .education-box p {
+        font-size: 1.4rem; /* Adjust paragraph font size */
+    }
+
+    .education h2 span {
+        font-size: 40px; /* Adjust font size for <span> */
+    }
+}
+
+@media (max-width: 768px) {
+    /* Adjustments for mobile devices */
+    .education h2 {
+        margin-bottom: 2rem; /* Further reduce margin */
+    }
+
+    .education-box {
+        flex: 1 1 45rem; /* Further adjust width */
+        padding: 2rem 1rem 2.5rem; /* Adjust padding */
+    }
+
+    .education-box i {
+        font-size: 4.5rem; /* Adjust icon size */
+    }
+
+    .education-box h3 {
+        font-size: 1.8rem; /* Adjust heading font size */
+    }
+
+    .education-box p {
+        font-size: 1.2rem; /* Adjust paragraph font size */
+    }
+
+    .education h2 span {
+        font-size: 35px; /* Adjust font size for <span> */
+    }
+}
+
+@media (max-width: 480px) {
+    /* Adjustments for very small devices */
+    .education h2 {
+        margin-bottom: 1.5rem; /* Further reduce margin */
+    }
+
+    .education-box {
+        flex: 1 1 100%; /* Full width for very small screens */
+        padding: 1.5rem 1rem 2rem; /* Adjust padding */
+    }
+
+    .education-box i {
+        font-size: 3.5rem; /* Adjust icon size */
+    }
+
+    .education-box h3 {
+        font-size: 1.6rem; /* Adjust heading font size */
+    }
+
+    .education-box p {
+        font-size: 1rem; /* Adjust paragraph font size */
+    }
+
+    .education h2 span {
+        font-size: 30px; /* Adjust font size for <span> */
+    }
+}
+
+
 
 /* --------------------------------------------------------------------------------------------------- */
 
@@ -376,9 +824,21 @@ span {
     font-size: 2rem;
     color: var(--second-bg-color);
 }
+.portfolio span {
+    color: #0ef; /* Change to your preferred color */
+    font-weight: bold; /* Optional: make text bold */
+    font-size: 50px;
+}
 
 /* -------------------------------------------------------------------------------------------------- */
 
+
+
+/* --------------------------------------------------------------------------------------------------- */
+
+/* Projects Section Styles */
+
+/* .................................................................................................... */
 .contact h2 {
     margin-bottom: 3rem;
 }
@@ -418,6 +878,11 @@ span {
 .contact form .btn {
     margin-top: 2rem;
     cursor: pointer;
+}
+.contact h2 span {
+    color: #0ef; /* Change to your preferred color */
+    font-weight: bold; /* Optional: make text bold */
+    font-size: 50px;
 }
 
 /* ---------------------------------------------------------------------------------------------------- */
@@ -472,4 +937,171 @@ span {
 
 
 
+.contact h2 {
+    margin-bottom: 3rem;
+    color: var(--text-color); /* Use your main color */
+    text-align: center;
+    font-size: 3.6rem;
+    font-size: 50px;
+}
+
+.contact form {
+    max-width: 70rem;
+    margin: 1rem auto;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.contact form .input-box {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.contact form .input-box input,
+.contact form textarea {
+    width: 100%;
+    padding: 1.5rem;
+    font-size: 1.6rem;
+    color: var(--text-color);
+    background: var(--second-bg-color);
+    border-radius: .8rem;
+    margin: .7rem 0;
+}
+
+.contact form .input-box input {
+    width: 49%;
+}
+
+.contact form textarea {
+    resize: none;
+}
+
+.contact form .btn {
+    margin-top: 2rem;
+    padding: 1rem 3rem;
+    cursor: pointer;
+    color: var(--main-color);
+    background-color: var(--second-bg-color);
+    border-radius: 2rem;
+    transition: 0.3s;
+}
+
+.contact form .btn:hover {
+    color: var(--second-bg-color);
+    background-color: var(--main-color);
+    box-shadow: 0 0 1rem var(--main-color);
+}
+
+/* Styles for all span elements */
+span {
+    font-size: 20px; /* Font size */
+    font-weight: 500; /* Font weight */
+    color: aliceblue; /* Text color */
+}
+
+/* Hover effect for span elements */
+span:hover {
+    color: #0ef; /* Color on hover */
+}
+
+/* Styles for images within span elements */
+span img {
+    height: 40px; /* Image height */
+    width: 40px; /* Image width */
+    border-radius: 50%; /* Rounded shape */
+}
+/* Default styles for the header span */
+.header span {
+    display: flex;
+    align-items: center;
+    font-size: 1.8rem; /* Default font size */
+    color: var(--text-color);
+}
+
+/* Media queries for responsiveness */
+
+@media (max-width: 1024px) {
+    .header span {
+        font-size: 1.6rem; /* Adjust font size for tablets and smaller screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .header span {
+        font-size: 1.4rem; /* Adjust font size for mobile devices */
+    }
+}
+
+@media (max-width: 480px) {
+    .header span {
+        font-size: 1.2rem; /* Adjust font size for very small screens */
+        flex-direction: column; /* Stack image and text vertically */
+        align-items: flex-start; /* Align items to the start */
+        margin-top: 0.5rem; /* Space between image and text in vertical layout */
+    }
+}
+
+
+.btn-container {
+    display: flex;
+    justify-content: center; /* Centers the buttons horizontally */
+    gap: 1rem; /* Adjusts the gap between the buttons */
+    margin-top: 2rem;
+}
+
+.btn-container .btn {
+    padding: 1rem 3rem;
+    cursor: pointer;
+    color: var(--main-color);
+    background-color: var(--second-bg-color);
+    border-radius: 2rem;
+    transition: 0.3s;
+}
+
+.btn-container .btn:hover {
+    color: var(--second-bg-color);
+    background-color: var(--main-color);
+    box-shadow: 0 0 1rem var(--main-color);
+}
+
+
+
+
+.footer {
+    display: flex;
+    justify-content: space-between; /* Aligns text and icon separately */
+    align-items: center; /* Vertically centers content */
+    padding: 2rem;
+    background-color: var(--footer-bg-color); /* Optional: add your background color */
+}
+
+.footer-text {
+    text-align: center; /* Centers text */
+    flex: 1; /* Allows text to take up remaining space */
+    color: var(--main-color); /* Optional: customize text color */
+}
+
+.footer-iconTop {
+    flex-shrink: 0; /* Keeps icon from shrinking */
+}
+
+.footer-iconTop a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 3rem;
+    height: 3rem;
+    border: 2px solid var(--main-color); /* Box border */
+    border-radius: 50%; /* Creates a circular box */
+    background-color: var(--second-bg-color); /* Box background color */
+    color: var(--main-color); /* Icon color */
+    font-size: 2rem; /* Adjust icon size */
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition on hover */
+}
+
+.footer-iconTop a:hover {
+    background-color: var(--main-color); /* Hover background color */
+    color: var(--second-bg-color); /* Hover icon color */
+}
 
